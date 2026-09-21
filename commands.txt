@@ -1,0 +1,846 @@
+    1  apt update
+    2  exit
+    3  /usr/bin/keychain -q --nogui $HOME/.ssh/id_rsa
+    4  exit
+    5  apt install keychain
+    6  /usr/bin/keychain -q --nogui $HOME/.ssh/id_rsa
+    7  exit
+    8  passwd
+    9  passwd sergioram
+   10  apt-get install openssl-devel zlib-devel
+   11  apt-get update
+   12  apt-get upgrade openssh-server openssh-client
+   13  exit
+   14  systemctl restart ssh
+   15  exit
+   16  kubectl apply -f 01-config.yaml
+   17  iptables --list
+   18  iptables --flush
+   19  iptables --list
+   20  kubectl apply -f 01-config.yaml
+   21  iptables -F
+   22  iptables -X
+   23  iptables -t nat -F
+   24  iptables -t nat -X
+   25  iptables -t mangle -F
+   26  iptables -t mangle -X
+   27  iptables -t raw -F
+   28  iptables -t raw -X
+   29  iptables -t security -F
+   30  iptables -t security -X
+   31  iptables -P INPUT ACCEPT
+   32  iptables -P FORWARD ACCEPT
+   33  iptables -P OUTPUT ACCEPT
+   34  kubectl apply -f 01-config.yaml
+   35  kubectl config use-context minikube
+   36  exit
+   37  xclip
+   38  ssh -T sergiorodriguez-lgtm@github.com
+   39  ssh-keygen -t ed25519 -C "sergiorodriguez-lgtm@github.com"
+   40  exit
+   41  adduser sergiorodriguez
+   42  exit
+   43  ubuntu config --default-user sergiorodriguez
+   44  vi /etc/wsl.conf 
+   45  wsl restart
+   46  wsl2 restart
+   47  exit
+   48  vi /etc/sudoers
+   49  vi /etc/sudo.conf 
+   50  vi /etc/sudo_logsrvd.conf 
+   51  vi /etc/sudoers.d/README 
+   52  visudo 
+   53  sudo usermod -aG sudo sergiorodriguez
+   54  exit
+   55  apt-get install aws-cli
+   56  apt-get install awscli
+   57  apt  install awscli
+   58  apt-get search aws*
+   59  aws configure
+   60  apt-get install aws-cli
+   61  apt install aws-cli
+   62  apt-get update
+   63  apt install aws-cli
+   64  aws
+   65  apt  install awscli
+   66  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip"
+   67  ls
+   68  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+   69  mkdir awscli
+   70  mv awscliv2.zip awscli
+   71  cd awscli/
+   72  apt install unzip
+   73  unzip awscliv2.zip 
+   74  ./aws/install 
+   75  aws --version
+   76  cd /home/sergiorodriguez/awscli
+   77  exit
+   78  apt-get install terraform
+   79  terraform init
+   80  exit
+   81  cd /mnt/c/REPOS/KataRepo/ai-development-students-en/students/sergio.rodriguez01
+   82  npm install -g nodemon
+   83  npm fund
+   84  exit
+   85  npm install -g nodemon
+   86  npm fund
+   87  exit
+   88  npm fund
+   89  npm install -g nodemon
+   90  npm update
+   91  npm upgrade
+   92  exit
+   93  sudo apt install npm
+   94  apt install npm
+   95  apt pgrade npm
+   96  apt upgrade npm
+   97  npm install -g nodemon
+   98  id
+   99  nvm install 22
+  100  nvm install 20
+  101  apt upgrade nvm
+  102  apt install nvm
+  103  apt-get install nvm
+  104  npm install -g nodemon@2
+  105  exit
+  106  npm install -g kilo
+  107  nodemon --watch src --ext ts,js,py --exec "kilo --agent quality-reviewer --auto 'Review the recent changes in the src folder'"
+  108  kilo
+  109  npm install -g kilo
+  110  kilo
+  111  exit
+  112  pip install kilo-cmd
+  113  apt install python3-pip
+  114  pip install kilo-cmd
+  115  ls -la .git/hooks/pre-commit  
+  116  git commit -m "[Kilo/GLM-4.6]: session 6 - Part 1: Balance Evolution Report implemented"
+  117  git config --global --add safe.directory /mnt/c/REPOS/KataRepo/ai-development-students-en
+  118  git commit -m "[Kilo/GLM-4.6]: session 6 - Part 1: Balance Evolution Report implemented"
+  119  git add .pre-commit-config.yaml
+  120  # Check current directory and pyproject.toml location
+  121  pwd
+  122  ls -la pyproject.toml
+  123  # Check current working directory when hook runs
+  124  echo "Current hook directory: $(pwd)"
+  125  echo "Looking for pyproject.toml in: $(find . -name pyproject.toml 2>/dev/null | head -3)"
+  126  # Edit the pre-commit hook to change working directory
+  127  sed -i '2a\
+  128  # Change to student directory for Poetry\n\
+  129  cd "students/sergio.rodriguez01" || { echo "Could not change directory"; exit 1; }\n' .git/hooks/pre-commit
+  130  cd "C:\REPOS\KataRepo\ai-development-students-en\students\sergio.rodriguez01"
+  131  cd C:\REPOS\KataRepo\ai-development-students-en\students\sergio.rodriguez01
+  132  cat > fix-wsl-hook.sh << 'EOF'
+  133  #!/bin/bash
+  134  # Fix WSL pre-commit hook working directory issue
+  135  HOOK_FILE=".git/hooks/pre-commit"
+  136  BACKUP_FILE=".git/hooks/pre-commit.backup"
+  137  # Backup existing hook
+  138  if [ -f "$HOOK_FILE" ]; then
+  139      cp "$HOOK_FILE" "$BACKUP_FILE"
+  140  fi
+  141  # Insert directory change after line 1 (after #!/bin/bash)
+  142  sed -i '1a\
+  143  # Change to student directory for Poetry compatibility\
+  144  cd "students/sergio.rodriguez01" || { echo "Could not change to student directory"; exit 1; }' "$HOOK_FILE"
+  145  echo "Pre-commit hook updated for WSL compatibility"
+  146  echo "Backup saved to: $BACKUP_FILE"
+  147  EOF
+  148  bash fix-wsl-hook.sh 
+  149  # Test if the hook works now
+  150  pre-commit run --files src/domain/models/financial_reports.py
+  151  # Test if the hook works now
+  152  pre-commit run --files src/domain/models/financial_reports.py
+  153  git add .pre-commit-config.yaml
+  154  git commit -m "[Kilo/GLM-4.6]: session 6 - Part 1: Balance Evolution Report implemented"
+  155  /mnt/c/Users/sergio.rodriguez01/AppData/Local/Programs/Python/Python313/python.exe --version
+  156  poetry --version || echo "Poetry not in PATH, using Windows Python directly"
+  157  /mnt/c/Users/sergio.rodriguez01/AppData/Local/Programs/Python/Python313/python.exe -m pytest tests/application/test_balance_evolution_service.py -v
+  158  /mnt/c/Users/sergio.rodriguez01/AppData/Local/Programs/Python/Python313/python.exe --version
+  159* 
+  160  git add .pre-commit-config.yaml
+  161  git commit -m "[Kilo/GLM-4.6]: session 6 - Part 1B: Balance Evolution Report implemented"
+  162  kilo
+  163  your goal is to showme how to get kilo command added to the WSL path
+  164  kilo
+  165  kilo @quality-reviewer 'test message'
+  166  ./kilo
+  167  pip install kilo
+  168  sudo apt install pre-commit
+  169  pip install ruff black mypy bandit pytest
+  170  pip install ruff black
+  171  pip install ruff
+  172  python -m venv kilo-env
+  173  py
+  174  apt install python
+  175  apt install python-is-python3
+  176  python
+  177  python -m venv kilo-env
+  178  source kilo-env/bin/activate
+  179  pip install https://github.com/globant/kilocode/archive/main.zip
+  180  npm install -g @kilocode/cli
+  181  python
+  182  kilo
+  183  kilo @quality-reviewer 'test message'
+  184* 
+  185  git commit -m "test commit after poetry path fix"
+  186  git add .
+  187  git commit -m "test commit after poetry path fix"
+  188  git add .
+  189  git commit -m "test commit after poetry path fix"
+  190  kilo @quality-reviewer 'test message'
+  191  apt install python3-pip
+  192  pip install kilo-cmd
+  193  apt install python3-kilo-cmd
+  194  pip install kilo-cmd
+  195  apt install python3-kilo
+  196  pip install kilo-cmd
+  197  apt install python3-full
+  198  pip install kilo-cmd
+  199  kilo
+  200  pip install kilo-cmd
+  201  apt install python3-pip
+  202  pip install kilo-cmd
+  203  apt install python3-ruff
+  204  apt install python3-black
+  205  apt install python3-bandit
+  206  apt install python3-ruff
+  207  apt install python3-mypy
+  208  # REST :4577 · Event Hubs AMQP :5672 · Service Bus AMQP :5673
+  209  docker run --rm   -p 4577:4577   -p 5672:5672   -p 5673:5673   floci/floci-az:latest
+  210  ls
+  211  az
+  212  exit
+  213  floci doctor
+  214  floci start --pull always
+  215  flozy az start
+  216  floci doctor
+  217  floci az start
+  218  eval $(floci az env)
+  219  floci az start
+  220  floci doctor
+  221  floci az start
+  222  floci doctor
+  223  eval $(floci az env)
+  224  floci az start
+  225  floci az status
+  226  eval $(floci az env)
+  227  floci az env
+  228  az storage container create --name my-container --connection-string $AZURE_STORAGE_CONNECTION_STRING
+  229  eval $(floci az env)
+  230  floci az status
+  231  az
+  232  floci az start
+  233  az
+  234  ./az
+  235  floci az status
+  236  floci az storage container create
+  237  az
+  238  floci az
+  239  az
+  240  az storeage
+  241  az storage
+  242  floci az env
+  243  eval $(floci az env)
+  244  echo $AZURE_STORAGE_CONNECTION_STRING
+  245  az
+  246  az command
+  247  floci-az
+  248  which az
+  249  ls
+  250  pwd
+  251  ls
+  252  cd ..
+  253  ls
+  254  cd Kilo_\&_Floci_\&_AZ/
+  255  ls
+  256  curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+  257  which az
+  258  eval $(floci az env)
+  259  az storage container create --name my-container --connection-string $AZURE_STORAGE_CONNECTION_STRING
+  260  echo "Azure locally — no bill, no drama. 🚀" hello-floci.txt
+  261  az storage blob upload --container-name my-container --name hello-floci.txt -- connection-string $AZURE_STORAGE_CONNECTION_STRING
+  262  az storage blob upload --container-name my-container --name hello-floci.txt --connection-string $AZURE_STORAGE_CONNECTION_STRING
+  263  az storage blob upload --container-name \my-container --name hello-floci.txt -- connection-string $AZURE_STORAGE_CONNECTION_STRING
+  264  az storage blob upload --container-name \ my-container --name hello-floci.txt -- connection-string $AZURE_STORAGE_CONNECTION_STRING
+  265  az storage blob upload --container-name my-container --name hello-floci.txt --file hello-floci.txt --connection-string $AZURE_STORAGE_CONNECTION_STRING
+  266  ls
+  267  ls -la
+  268  echo "Azure locally — no bill, no drama. 🚀" > hello-floci.txt
+  269  ls -la
+  270  az storage blob upload --container-name my-container --name hello-floci.txt --file hello-floci.txt --connection-string $AZURE_STORAGE_CONNECTION_STRING
+  271  az storage blob download --container-name my-container
+  272  az storage blob download --container-name my-container --name hello-floci.txt --file hello-back.txt --connection-string $AZURE_STORAGE_CONNECTION_STRING
+  273  ls
+  274  cat hello-back.txt 
+  275  # Create a container
+  276  az storage container create   --name sales-data   --connection-string "$CONN_STR"
+  277  cat > sales.csv <<'EOF'
+  278  order_id,region,product,amount
+  279  1,us-east,widget-a,99.50
+  280  2,us-west,widget-b,150.00
+  281  3,eu-west,widget-a,87.00
+  282  4,us-east,widget-c,210.00
+  283  5,eu-west,widget-b,130.00
+  284  EOF
+  285  cat sales.csv 
+  286  az storage upload --container-name sales-data --file sales.csv --connection-string "$CONN_STR"
+  287  az storage blob upload --container-name sales-data --file sales.csv --connection-string "$CONN_STR"
+  288  az storage blob list   --container-name sales-data   --connection-string "$CONN_STR"   --output table
+  289  az storage blob list   --container-name sales-data   --connection-string "$CONN_STR" 
+  290  az storage blob list   --container-name sales-data   --connection-string "$CONN_STR"   --output table
+  291  az storage blob download --container-name sales-data --file sales-back.csv --connection-string "$CONN_STR" --name sales/data.csv
+  292  az storage blob download --container-name sales-data --file sales.csv --connection-string "$CONN_STR" --name sales/data.csv
+  293  az storage blob download --container-name sales-data --file sales.csv --connection-string "$CONN_STR" --name sales.csv
+  294  ls -la
+  295  cat sales.csv 
+  296  # Download the blob back to disk
+  297  az storage blob download   --container-name sales-data   --name sales/data.csv   --file sales-back.csv   --connection-string "$CONN_STR"
+  298  az storage blob download   --container-name sales-data   --name sales.csv   --file sales-back.csv   --connection-string "$CONN_STR"
+  299  ls -la
+  300  cat sales-back.csv 
+  301  az storage blob list   --container-name sales-data   --connection-string "$CONN_STR"   --output table
+  302  az storage blob download   --container-name sales-data   --name sales.csv   --file sales-back2.csv   --connection-string "$CONN_STR"
+  303  az storage blob download   --container-name sales-data   --name sales.csv   --file sales-back3.csv   --connection-string "$CONN_STR"
+  304  ls -la
+  305  ls
+  306  ./blobs.py 
+  307  python
+  308  python blobs.py 
+  309  py install azure
+  310  apt install pythonpy
+  311  py install azure
+  312  python blobs.py 
+  313  cls
+  314  clear
+  315  python blobs.py 
+  316  pip install azure-storage-blob
+  317  python blobs.py 
+  318  clear
+  319  python blobs.py 
+  320  vi blobs.py 
+  321  clear
+  322  python blobs.py 
+  323  vi blobs.py 
+  324  python blobs.py 
+  325  clear
+  326  python sas.py
+  327  python blobs.py 
+  328  python sas.py
+  329  clear
+  330  ./onehourtoken.sh 
+  331  which
+  332  which sh
+  333  ./onehourtoken.sh 
+  334  ls
+  335  ./onehourtoken.sh 
+  336  env
+  337  ./onehourtoken.sh 
+  338  sh onehourtoken.sh 
+  339  date
+  340  clear
+  341  sh onehourtoken.sh 
+  342  EXPIRY=$(date -u -v+1H +"%Y-%m-%dT%H:%MZ" 2>/dev/null || date -u -d "+1 hour" +"%Y-%m-%dT%H:%MZ")
+  343  date -u -v+1H +"%Y-%m-%dT%H:%MZ" 2>/dev/null
+  344  date -u -v+1H +"%Y-%m-%dT%H:%MZ"
+  345  date -u -d "+1 hour" +"%Y-%m-%dT%H:%MZ"
+  346  sh onehourtoken.sh 
+  347  clear
+  348  sh onehourtoken.sh 
+  349  date -u -d "+1 hour" +"%Y-%m-%dT%H:%MZ"
+  350  sh onehourtoken.sh 
+  351  curl "http://localhost:4577/devstoreaccount1/sales-data/sales/data.csv"
+  352  curl "http://localhost:4577/devstoreaccount1/sales-data/sales/data.csv?$SAS"
+  353  apt install azure-storage-blob
+  354  pip install azure-storage-blob
+  355  apt install python3-full
+  356  pip install azure-storage-blob
+  357  pipx install azure-storage-blob
+  358  pip3 install azure-storage-blob
+  359  apt install python3-azure-storage-blob
+  360  apt update
+  361  apt install python3-pip
+  362  pip3 install azure-storage-blob
+  363  pip3 install azure-storage-blob --break-system-package
+  364  pip3 install azure-storage-blob --break-system-packages
+  365  exit
+  366  blackY9217689
+  367  floci az status
+  368  floci az doctor
+  369  docker pull floci/floci-az:latest
+  370  floci az doctor
+  371  docker pull floci/floci-az 
+  372  docker pull floci/floci-az:0.14.0
+  373  docker pull floci/floci-az:1.15.0
+  374  docker pull floci/floci-az:latest
+  375  floci az doctor
+  376  floci start
+  377  floci az doctor
+  378  floci stop
+  379  floci start
+  380  floci stop
+  381  floci-az stop
+  382  floci stop
+  383  floci az stop
+  384  floci az start
+  385  floci az doctor
+  386  export CONN_STR="DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;TableEndpoint=http://localhost:4577/devstoreaccount1-table;"
+  387  echo $CONN_STR
+  388  eval $(floci az env)
+  389  echo $CONN_STR
+  390  az storage table create --name MyTable --connection-string "$CONN_STR"
+  391  az storage entity insert --table-name MyTable --entity PartitionKey=pk1 RowKey=rk1 Value=HelloLocalCloud --connection-string "$CONN_STR"
+  392  az storage entity show --table-name MyTable --partition-key pk1 --row-key rk1 --connection-string "$CONN_STR"
+  393  az storage entity insert --table-name Users --entity PartitionKey=pk1 RowKey=1 Name=Ada Status=Active --connection-string "$CONN_STR"
+  394  az storage entity insert --table-name Users --entity PartitionKey=pk1 RowKey=2 Name=Grace Status=Active --connection-string "$CONN_STR"
+  395  az storage entity insert --table-name Users --entity PartitionKey=pk1 RowKey=3 Name=Sergio Status=Active --connection-string "$CONN_STR"
+  396  az storage entity merge --table-name Users --entity PartitionKey=pk1 RowKey=3 Name=SergioIvan Status=Inactive --connection-string "$CONN_STR"
+  397  az storage entity delete --table-name Users --entity PartitionKey=pk1 RowKey=2 --connection-string "$CONN_STR"
+  398  az storage entity delete --table-name Users --entity --partition-key=pk1 --row-key=2 --connection-string "$CONN_STR"
+  399  az storage entity delete --table-name Users --partition-key=pk1 --row-key=2 --connection-string "$CONN_STR"
+  400  az storage entity query --table-name Users --connection-string="$CONN_STR" --output table
+  401  ls
+  402  mkdir session02
+  403  cd session02/
+  404  ls
+  405  clear
+  406  terraform init
+  407  terraform-apply --auto-approve
+  408  terraform apply --auto-approve
+  409  export ARM_STORAGE_ENDPOINT="http://localhost:4577/devstoreaccount1"
+  410  export ARM_ENVIRONMENT="public"
+  411  echo $ARM_STORAGE_ENDPOINT
+  412  terraform apply --auto-approve
+  413  clear
+  414  terraform apply --auto-approve
+  415  GET http://localhost:4577/_floci/tls-cert
+  416  export FLOCI_AZ_TLS_ENABLED="true"
+  417  floci az stop
+  418  export CONN_STR="DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;TableEndpoint=http://localhost:4577/devstoreaccount1-table;"
+  419  floci az start
+  420  terraform apply --auto-approve
+  421  GET http://localhost:4577/_floci/tls-cert
+  422  export FLOCI_AZ_TLS_ENABLED=true
+  423  GET http://localhost:4577/_floci/tls-cert
+  424  floci az stop
+  425  floci az start
+  426  GET http://localhost:4577/_floci/tls-cert
+  427  GET http://localhost:4577/_floci/tls-certcurl -k http://localhost:4577/_floci/tls-cert
+  428  curl -k http://localhost:4577/_floci/tls-cert
+  429  docker-compose status
+  430  docker status
+  431  docker --help
+  432  docker ps
+  433  floci az stop
+  434  docker ps
+  435  export FLOCI_AZ_TLS_ENABLED=true
+  436  curl -k http://localhost:4577/_floci/tls-cert
+  437  floci az start
+  438  curl -k http://localhost:4577/_floci/tls-cert
+  439  curl -k https://localhost:4577/_floci/tls-cert
+  440  terraform apply --auto-approve
+  441  export ARM_SKIP_PROVIDER_REGISTRATION=true
+  442  export ARM_METADATA_HOSTNAME="localhost:4577"
+  443  export ARM_ENVIRONMENT="public"
+  444  terraform apply --auto-approve
+  445  export ARM_METADATA_HOSTNAME="localhost:4577"
+  446  export ARM_SKIP_PROVIDER_REGISTRATION=true
+  447  export ARM_ENVIRONMENT="public"
+  448  terraform apply --auto-approve
+  449  floci az start
+  450  floci az stop
+  451  floci az start
+  452  GET http://localhost:4577/_floci/tls-certcurl
+  453  GET https://localhost:4577/_floci/tls-certcurl
+  454  export ARM_STORAGE_ENDPOINT="http://localhost:4577/devstoreaccount1"
+  455  export ARM_ENVIRONMENT="public"
+  456  history 
+  457  export ARM_STORAGE_ENDPOINT="http://localhost:4577/devstoreaccount1"
+  458  export ARM_ENVIRONMENT="public"
+  459  GET http://localhost:4577/_floci/tls-cert
+  460  floci az stop
+  461  floci az start
+  462  GET http://localhost:4577/_floci/tls-cert
+  463  export FLOCI_AZ_TLS_ENABLED=true
+  464  floci az stop
+  465  floci az start
+  466  GET http://localhost:4577/_floci/tls-cert
+  467  GET https://localhost:4577/_floci/tls-cert
+  468  clear
+  469  ARM_SKIP_PROVIDER_REGISTRATION=true ARM_METADATA_HOSTNAME="localhost:4577" ARM_ENVIRONMENT="public" terraform apply --auto-approve
+  470  GET https://localhost:4577/_floci/tls-cert
+  471  GET http://localhost:4577/_floci/tls-cert
+  472  GET https://localhost:4577/_floci/tls-cert
+  473  docker ps
+  474  floci az start
+  475  floci az stop
+  476  docker ps
+  477  clear
+  478  docker ps
+  479  floci az start
+  480  curl -k https://localhost:4577/_floci/tls-cert
+  481  floci az stop
+  482  export FLOCI_AZ_TLS_ENABLED=true
+  483  curl -k https://localhost:4577/_floci/tls-cert
+  484  docker ps
+  485  floci az stop
+  486  docker ps
+  487  docker run -d   -e FLOCI_AZ_TLS_ENABLED=true   -p 4577:4577   --name floci-az   floci/floci-az:latest
+  488  docker run -d -e FLOCI_AZ_TLS_ENABLED=true -p 4577:4577 --name floci-azu floci/floci-az:latest
+  489  docker ps
+  490  curl -k https://localhost:4577/_floci/tls-cert
+  491  terraform apply --auto-approve
+  492  cp main.tf main2.tf 
+  493  vi main2.tf 
+  494  terraform apply --auto-approve
+  495  terraform destroy --auto-approve
+  496  terraform status
+  497  terraform state
+  498  terraform destroy --auto-approve
+  499  terraform state show
+  500  terraform state list
+  501  terraform apply --auto-approve
+  502  terraform state list
+  503  terraform state pull
+  504  curl -k https://localhost:4577/_floci/tls-cert
+  505  docker logs floci-az | grep -i tls
+  506  curl -k https://localhost:4577/_floci/tls-cert
+  507  docker logs floci-az
+  508  docker images floci/floci-az
+  509  curl https://localhost:4577/_floci/tls-cert
+  510  curl -w %{certs} https://localhost:4577/_floci/tls-cert > cacert.pem
+  511  vi cacert.pem 
+  512  curl -k -w %{certs} https://localhost:4577/_floci/tls-cert > cacert.pem
+  513  vi cacert.pem 
+  514  q
+  515  cat /dev/null cacert.pem 
+  516  cat /dev/null > cacert.pem 
+  517  vi cacert.pem 
+  518  curl -k -w %{certs} https://localhost:4577/_floci/tls-cert > cacert.pem
+  519  vi cacert.pem 
+  520  curl --cacert cacert.pem
+  521  mv cacert.pem curl-ca-bundle.crt
+  522  curl https://localhost:4577/_floci/tls-cert
+  523  ls
+  524  curl --cacert curl-ca-bundle.crt https://localhost:4577/_floci/tls-cert
+  525  certutil
+  526  terraform apply --auto-approve
+  527  curl https://localhost:4577/metadata/endpoints?api-version=2022-09-01
+  528  export SSL_CERT_FILE="curl-ca-bundle.crt"export SSL_CERT_FILE="curl-ca-bundle.crt"
+  529  terraform apply --auto-approve
+  530  curl -k https://localhost:4577/devstoreaccount1?comp=list
+  531  echo $ARM_STORAGE_DOMAIN
+  532  echo $ARM_STORAGE_ENDPOINT
+  533  export ARM_STORAGE_ENDPOINT="https://localhost:4577"
+  534  export ARM_STORAGE_DOMAIN="core.windows.net"
+  535  echo $ARM_STORAGE_ENDPOINT
+  536  echo $ARM_STORAGE_DOMAIN
+  537  terraform apply --auto-approve
+  538  curl -k https://localhost:4577/devstoreaccount1?comp=list
+  539  curl https://localhost:4577/devstoreaccount1?comp=list
+  540  terraform destroy
+  541  terraform status
+  542  terraform status show
+  543  terraform state show
+  544  terraform state show -help
+  545  terraform validate
+  546  terraform plan
+  547  terraform apply
+  548  curl -k https://localhost:4577/devstoreaccount1?comp=list
+  549  echo $ARM_STORAGE_ENDPOINT
+  550  echo $ARM_STORAGE_DOMAIN
+  551  terraform version
+  552  terraform workspace list
+  553  terraform plan
+  554  terraform init -upgrade
+  555  terraform plan
+  556  terraform version
+  557  terraform apply
+  558  terraform plan
+  559  echo $ARM_STORAGE_DOMAIN
+  560  echo $ARM_STORAGE_ENDPOINT
+  561  terraform plan
+  562  echo $ARM_STORAGE_ENDPOINT
+  563  echo $ARM_STORAGE_DOMAIN
+  564  curl -k https://localhost:4577/devstoreaccount1?comp=list
+  565  curl --cacert curl-ca-bundle.crt https://localhost:4577/_floci/tls-cert
+  566  curl https://localhost:4577/metadata/endpoints?api-version=2022-09-01
+  567  GET http://localhost:4577/_floci/tls-certcurl
+  568  curl -k https://localhost:4577/_floci/tls-cert
+  569  terraform plan
+  570  terraform state rm azurerm_storage_account.sa
+  571  terraform plan
+  572  terraform destroy
+  573  terraform plan
+  574  terraform state rm azurerm_storage_account.sa
+  575  terraform state list
+  576  terraform state rm azurerm_resource_group.rg
+  577  terraform plan
+  578  terraform destroy
+  579  terraform state list
+  580  terraform state show
+  581  terraform init
+  582  terraform plan
+  583  terraform state rm azurerm_storage_account.sa
+  584  terraform plan
+  585  terraform apply
+  586  terraform state rm azurerm_resource_group.rg
+  587  terraform state list
+  588  terraform apply
+  589  terraform state
+  590  terraform state list
+  591  terraform state pull
+  592  terraform init
+  593  terraform state list
+  594  terraform state pull
+  595  terraform plan
+  596  terraform apply --auto-aprove
+  597  terraform apply --auto-approve
+  598  terraform import azurerm_resource_group.rg /subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/local-rg
+  599  terraform apply --auto-approve
+  600  date
+  601  sudo hwclock -s
+  602  hwe-support-status 
+  603  apt-get install hwclock
+  604  apt-get info hwclock
+  605  sudo apt update
+  606  sudo apt install util-linux-extra
+  607  sudo hwclock -s
+  608  date
+  609  terraform apply --auto-approve
+  610  terraform state list
+  611  terraform state pull
+  612  echo $ARM_STORAGE_DOMAIN
+  613  echo $ARM_STORAGE_ENDPOINT
+  614  export ARM_STORAGE_DOMAIN="localhost:4577"
+  615  echo $ARM_STORAGE_DOMAIN
+  616  terraform apply --auto-approve
+  617  terraform plan
+  618  terraform apply --auto-approve
+  619  echo $ARM_STORAGE_DOMAIN
+  620  terraform apply --auto-approve
+  621  terraform plan
+  622  terraform destroy
+  623  terraform state pull
+  624  terraform plan
+  625  terraform apply --auto-approve
+  626  terraform state pull
+  627  terraform plan
+  628  terraform apply --auto-approve
+  629  terraform plan
+  630  terraform apply --auto-approve
+  631  terraform state pull
+  632  terraform destroy
+  633  terraform apply --auto-approve
+  634  floci doctor
+  635  floci az start
+  636  floci az doctor
+  637  export AZURE_STORAGE_CONNECTION_STRING='DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMh0==;BlobEndpoint=http://localhost.floci.io:4577/devstoreaccount1;QueueEndpoint=http://localhost.floci.io:4577/devstoreaccount1-queue;TableEndpoint=http://localhost.floci.io:4577/devstoreaccount1-table;'
+  638  floci az doctor
+  639  curl -k https://localhost:4577/_floci/tls-cert
+  640  echo $FLOCI_AZ_TLS_ENABLED
+  641  pwd
+  642  ls
+  643  cd session02/
+  644  ls
+  645  export FLOCI_AZ_TLS_ENABLED=true
+  646  echo $FLOCI_AZ_TLS_ENABLED
+  647  curl -k https://localhost:4577/_floci/tls-cert
+  648  floci az stop
+  649  curl -k https://localhost:4577/_floci/tls-cert
+  650  floci az start
+  651  curl -k https://localhost:4577/_floci/tls-cert
+  652  echo $FLOCI_AZ_TLS_ENABLED
+  653  export FLOCI_AZ_TLS_ENABLED=true
+  654  echo $FLOCI_AZ_TLS_ENABLED
+  655  curl -k https://localhost:4577/_floci/tls-cert
+  656  export AZURE_STORAGE_CONNECTION_STRING='DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMh0==;BlobEndpoint=http://localhost.floci.io:4577/devstoreaccount1;QueueEndpoint=http://localhost.floci.io:4577/devstoreaccount1-queue;TableEndpoint=http://localhost.floci.io:4577/devstoreaccount1-table;'
+  657  curl -k https://localhost:4577/_floci/tls-cert
+  658  floci az start
+  659  curl -k https://localhost:4577/_floci/tls-cert
+  660  floci az doctor
+  661  floci az doctor --fix
+  662  floci az env
+  663  eval $(floci az env)
+  664  floci az env
+  665  curl -k https://localhost:4577/_floci/tls-cert
+  666  az storage table create --name MyTable --connection-string "$CONN_STR"
+  667  az storage entity show --table-name MyTable --partition-key pk1 --row-key rk1 --connection-string "$CONN_STR"
+  668  az storage entity show --table-name MyTable
+  669  az storage entity query --table-name Users --connection-string="$CONN_STR" --output table
+  670  az storage entity query --table-name MyTable --connection-string="$CONN_STR" --output table
+  671  az storage table create --name MyTable --connection-string "$CONN_STR"
+  672  az storage table create --name EXAMPLE --connection-string "$CONN_STR"
+  673  az storage entity query --table-name EXAMPLE --connection-string="$CONN_STR" --output table
+  674  curl -k https://localhost:4577/_floci/tls-cert
+  675  curl -k http://localhost:4577/_floci/tls-cert
+  676  echo $FLOCI_AZ_TLS_ENABLED
+  677  curl -k http://localhost:4577/_floci/tls-cert
+  678  curl -k https://localhost:4577/_floci/tls-cert
+  679  curl -k http://localhost:4577/_floci/tls-cert
+  680  floci az env
+  681  floci az doctor
+  682  floci az stop
+  683  floci az doctor
+  684  export CONN_STR="DefaultEndpointsProtocol=http;\
+AccountName=devstoreaccount1;\
+AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;\
+BlobEndpoint=http://localhost:4577/devstoreaccount1;"
+  685  echo $FLOCI_AZ_TLS_ENABLED
+  686  floci az env
+  687  eval $(floci az env)
+  688  floci az start
+  689  curl -k http://localhost:4577/_floci/tls-cert
+  690  curl -k https://localhost:4577/_floci/tls-cert
+  691  az storage table create --name MyTable --connection-string "$CONN_STR"
+  692  az storage table create --name MyTable2 --connection-string "$CONN_STR"
+  693  export CONN_STR="DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;TableEndpoint=http://localhost:4577/devstoreaccount1-table;"
+  694  eval $(floci az env)
+  695  floci az env
+  696  floci az stop
+  697  floci az start
+  698  curl -k http://localhost:4577/_floci/tls-cert
+  699  curl -k https://localhost:4577/_floci/tls-cert
+  700  az storage table create --name MyTable2 --connection-string "$CONN_STR"
+  701  az storage entity query --table-name MyTable2 --connection-string="$CONN_STR" --output table
+  702  az storage table create --name MyTable --connection-string "$CONN_STR"
+  703* az storage entity show --table-name MyTable --partition-key pk1 --row-key 1 --connection-string "$CONN_STR"
+  704  echo $CONN_STR
+  705  curl -k https://localhost:4577/_floci/tls-cert
+  706  curl -k http://localhost:4577/_floci/tls-cert
+  707  az storage entity insert --table-name Users --entity PartitionKey=pk1 RowKey=2 Name=Grace Status=Active --connection-string "$CONN_STR"
+  708  az storage entity show --table-name Users --partition-key pk1 --row-key rk1 --connection-string "$CONN_STR"
+  709  az storage entity insert --table-name Users --entity PartitionKey=pk1 RowKey=3 Name=Sergio Status=Active --connection-string "$CONN_STR"
+  710  az storage entity show --table-name Users --partition-key pk1 --row-key rk1 --connection-string "$CONN_STR"
+  711  az storage entity show --table-name Users
+  712  az storage entity show --table-name Users --partition-key pk1 --row-key 3 --connection-string "$CONN_STR"
+  713  az storage entity show --table-name MyTable --partition-key pk1 --row-key 1 --connection-string "$CONN_STR"
+  714  floci az env
+  715  az storage table create --name MyTable --connection-string "$CONN_STR"
+  716  az storage entity show --table-name MyTable --partition-key pk1 --row-key 1 --connection-string "$CONN_STR"
+  717  az storage entity show --table-name MyTable --partition-key=pk1 --row-key 1 --connection-string "$CONN_STR"
+  718  az storage table create --name MyTable --entity PartitionKey=pk1 RowKey=1 Name=TestMyTable Status=Active --connection-string "$CONN_STR"
+  719  az storage table create --name MyTable --PartitionKey=pk1 RowKey=1 Name=TestMyTable Status=Active --connection-string "$CONN_STR"
+  720  az storage table create --name MyTable --entity PartitionKey pk1 RowKey=1 Name=TestMyTable Status=Active --connection-string "$CONN_STR"
+  721  az storage table create --name MyTable --entity PartitionKey pk1 RowKey 1 Name TestMyTable Status=Active --connection-string "$CONN_STR"
+  722  az storage entity insert --table-name TestUsers --entity PartitionKey=pk1 RowKey=2 Name=Grace Status=Active --connection-string "$CONN_STR"
+  723  az storage entity insert --table-name MyTable --entity PartitionKey=pk1 RowKey=2 Name=TestMyTable Status=Active --connection-string "$CONN_STR"
+  724  az storage entity insert --table-name MyTable --entity PartitionKey=pk1 RowKey=1 Name=TestMyTable Status=Active --connection-string "$CONN_STR"
+  725  az storage entity show --table-name MyTable --partition-key=pk1 --row-key 1 --connection-string "$CONN_STR"
+  726  az storage entity show --table-name MyTable --partition-key pk1 --row-key rk1 --connection-string "$CONN_STR"
+  727  az storage table create --name MyTable3 --connection-string "$CONN_STR"
+  728  az storage entity insert --table-name MyTable3 --entity PartitionKey=pk1 RowKey=1 Name=Sergio Status=Active --connection-string "$CONN_STR" 
+  729  az storage entity show --table-name MyTable3 --partition-key pk1 --row-key 1 --connection-string "$CONN_STR"
+  730  az storage entity insert --table-name MyTable3 --entity PartitionKey=pk1 RowKey=2 Name=Tyson Status=Active --connection-string "$CONN_STR" 
+  731  az storage entity show --table-name MyTable3
+  732  az storage entity show --table-name MyTable3 --partition-key pk1 --row-key 1
+  733  az storage entity show --table-name MyTable3 --partition-key pk1 --row-key 2
+  734  az storage entity show --table-name MyTable --partition-key pk1 --row-key rk1 --connection-string "$CONN_STR"
+  735  az storage entity show --table-name MyTable3 --partition-key pk1 --row-key rk1 --connection-string "$CONN_STR"
+  736  az storage entity show --table-name MyTable3 --partition-key pk1 --row-key 1 --connection-string "$CONN_STR"
+  737  az storage entity show --table-name MyTable3 --partition-key pk1 --row-key 2 --connection-string "$CONN_STR"
+  738  az storage entity show --table-name MyTable3 --partition-key pk1 --connection-string "$CONN_STR"
+  739  az storage entity show --table-name MyTable3 --connection-string "$CONN_STR"
+  740  az storage entity show --connection-string "$CONN_STR"
+  741  az storage entity insert --table-name Users --entity PartitionKey=pk1 RowKey=1 Name=Ada Status=Active --connection-string "$CONN_STR"
+  742  az storage entity insert --table-name Users --entity PartitionKey=pk1 RowKey=2 Name=Grace Status=Active --connection-string "$CONN_STR"
+  743  az storage entity insert --table-name Users --entity PartitionKey=pk1 RowKey=3 Name=Sergio Status=Active --connection-string "$CONN_STR"
+  744  az storage entity merge --table-name Users --entity PartitionKey=pk1 RowKey=3 Name=SergioIvan Status=Inactive --connection-string "$CONN_STR"
+  745  az storage entity query --table-name Users --connection-string="$CONN_STR" --output table
+  746  az storage entity delete --table-name Users --partition-key=pk1 --row-key=2 --connection-string "$CONN_STR"
+  747  {   "deleted": null;  ;
+  748  az storage entity query --table-name Users --connection-string="$CONN_STR" --output table
+  749  az storage entity query --table-name MyTable3 --connection-string="$CONN_STR" --output table
+  750  clear
+  751  $user
+  752  prompt $user
+  753  prompt $userthe prompt in linux CLI
+  754  PS1="KataCross Sess02> "
+  755  clear
+  756  floci az stop
+  757  floci az doctor
+  758  floci az start
+  759  clear
+  760  $(floci az env)
+  761  clear
+  762  floci az env
+  763  eval $(floci az env)
+  764  az storage table create --name MyTable --connection-string "$CONN_STR"
+  765  az storage entity insert --table-name MyTable --entity PartitionKey=pk1 RowKey=1 Name=Sergio Status=Active --connection-string "$CONN_STR"
+  766  PartitionKey=pk1 RowKey=2 Name=Tyson Status=Active --connection-string "$CONN_STR
+
+;
+  767  az storage entity insert --table-name MyTable --entity PartitionKey=pk1 RowKey=2 Name=Tyson Status=Active --connection-string "$CONN_STR
+"
+  768  clear
+  769  az storage entity insert --table-name Users --entity PartitionKey=pk1 RowKey=1 Name=Ada Status=Active --connection-string "$CONN_STR"
+  770  az storage entity insert --table-name Users --entity PartitionKey=pk1 RowKey=2 Name=Grace Status=Active --connection-string "$CONN_STR"
+  771  az storage entity insert --table-name Users --entity PartitionKey=pk1 RowKey=3 Name=Sergio Status=Active --connection-string "$CONN_STR"
+  772  az storage entity merge --table-name Users --entity PartitionKey=pk1 RowKey=3 Name=SergioIvan Status=Inactive --connection-string "$CONN_STR"
+  773  az storage entity delete --table-name Users --partition-key=pk1 --row-key=2 --connection-string "$CONN_STR"
+  774  az storage entity query --table-name Users --connection-string="$CONN_STR" --output table
+  775  az storage entity query --table-name MyTable --connection-string="$CONN_STR" --output table
+  776  http://localhost:4577/_floci/tls-cert
+  777  get http://localhost:4577/_floci/tls-cert
+  778  wget http://localhost:4577/_floci/tls-cert
+  779  wget https://localhost:4577/_floci/tls-cert
+  780  terraform init
+  781  pwd
+  782  ls
+  783  cd session02/
+  784  terraform init
+  785  terraform plan
+  786  echo $ARM_STORAGE_ENDPOINT
+  787  echo $ARM_ENVIRONMENT
+  788  export ARM_STORAGE_ENDPOINT="http://localhost:4577/devstoreaccount1"
+  789  export ARM_ENVIRONMENT="public"
+  790  terraform plan
+  791  terraform init
+  792  terraform plan
+  793  curl -k https://localhost:4577/devstoreaccount1?comp=list
+  794  floci az version
+  795  az storage entity query --table-name MyTable --connection-string="$CONN_STR" --output table
+  796  floci az version
+  797  floci az stop
+  798  floci az start
+  799  floci az version
+  800  floci az stop
+  801  floci az status
+  802  floci az start
+  803  floci az status
+  804  floci az version
+  805  terraform plan
+  806  docker compose down
+  807  docker ps
+  808  curl -k https://localhost:4577/devstoreaccount1?comp=list
+  809  http://localhost:4577/_floci/tls-cert
+  810  curl -k http://localhost:4577/_floci/tls-cert
+  811  clear
+  812  curl -k http://localhost:4577/_floci/tls-cert
+  813  curl http://localhost:4577/_floci/tls-cert
+  814  docker logs floci-az | tail -50
+  815  docker logs floci-az | tail -500
+  816  docker logs floci-az | tail -10
+  817  floci az stop
+  818  docker logs floci-az | tail -10
+  819  floci az start
+  820  docker logs floci-az | tail -10
+  821  docker logs floci-az | tail -50
+  822  docker logs floci-az | tail -100
+  823  docker ps
+  824  floci az stop
+  825  docker ps
+  826  docker run -d   -e FLOCI_AZ_TLS_ENABLED=true   -p 4577:4577   --name floci-az   floci/floci-az:latest
+  827  docker ps
+  828  docker run -d   -e FLOCI_AZ_TLS_ENABLED=true   -p 4577:4577   --name floci-az   floci/floci-az:latest
+  829  docker run --help
+  830  docker rm --name floci-az
+  831  docker rm floci-az
+  832  docker ps
+  833  docker run -d   -e FLOCI_AZ_TLS_ENABLED=true   -p 4577:4577   --name floci-az   floci/floci-az:latest
+  834  docker ps
+  835  curl http://localhost:4577/_floci/tls-cert
+  836  terraform init
+  837  terraform plan
+  838  echo $SSL_CERT_FILE
+  839  vi curl-ca-bundle.crt 
+  840  history > commands.txt
