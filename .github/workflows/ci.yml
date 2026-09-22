@@ -32,6 +32,12 @@ jobs:
           az storage table create --name Users --connection-string "$CONN_STR"
           az storage entity insert --table-name Users --entity PartitionKey=pk1 RowKey=1 Name=Alice Status=Active --connection-string "$CONN_STR"
           az storage entity insert --table-name Users --entity PartitionKey=pk1 RowKey=2 Name=Bob Status=Pending --connection-string "$CONN_STR"
+          az storage entity insert --table-name Users --entity PartitionKey=pk1 RowKey=3 Name=Ned Status=Active --connection-string "$CONN_STR"
+          az storage entity insert --table-name Users --entity PartitionKey=pk1 RowKey=4 Name=Sam Status=Active --connection-string "$CONN_STR"
+          az storage entity insert --table-name Users --entity PartitionKey=pk1 RowKey=5 Name=Mel Status=Active --connection-string "$CONN_STR"
+          az storage entity insert --table-name Users --entity PartitionKey=pk1 RowKey=6 Name=Ron Status=Active --connection-string "$CONN_STR"
+          az storage entity insert --table-name Users --entity PartitionKey=pk1 RowKey=7 Name=Joe Status=Pending --connection-string "$CONN_STR"
+          az storage entity insert --table-name Users --entity PartitionKey=pk1 RowKey=8 Name=Job Status=Active --connection-string "$CONN_STR"
 
       - name: Run Python CSV Backup Script
         env:
