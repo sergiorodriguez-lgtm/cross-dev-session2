@@ -42,3 +42,10 @@ jobs:
       - name: Validate Output
         run: |
           cat users_backup.csv
+
+      - name: Upload CSV Backup Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: table-storage-backup
+          path: users_backup.csv
+          retention-days: 5
