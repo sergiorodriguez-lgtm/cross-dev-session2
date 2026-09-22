@@ -29,7 +29,7 @@ jobs:
       - name: Install Dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install azure-data-tables
+          pip install azure-data-tables --break-system-packages
 
       - name: Provision Table Data via Azure CLI
         env:
