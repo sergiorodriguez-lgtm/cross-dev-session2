@@ -12,9 +12,9 @@ jobs:
         ports:
           - 4577:4577
         options: >-
-          --health-cmd "curl -f http://localhost:4577/_floci/health || exit 1"
-          --health-interval 2s
-          --health-timeout 3s
+          --health-cmd "curl -f http://localhost.floci.io:4577/_floci/health || exit 1"
+          --health-interval 3s
+          --health-timeout 4s
           --health-retries 10
 
     steps:
